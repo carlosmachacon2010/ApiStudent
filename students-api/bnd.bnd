@@ -1,0 +1,10 @@
+Bundle-Name: students-api
+Bundle-SymbolicName: com.liferay.training.students.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.training.students.exception,\
+	com.liferay.training.students.model,\
+	com.liferay.training.students.service,\
+	com.liferay.training.students.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../students-service/service.xml
