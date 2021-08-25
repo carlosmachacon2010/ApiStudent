@@ -6,6 +6,6 @@ package com.liferay.training.student.web.constants;
 public class StudentPortletKeys {
 
 	public static final String STUDENT =
-		"com_liferay_training_student_web_StudentPortlet";
+		"com_liferay_training_student_web_portlet_StudentPortlet";
 
 }

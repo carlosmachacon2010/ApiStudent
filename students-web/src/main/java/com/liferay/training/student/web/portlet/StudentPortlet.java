@@ -2,11 +2,22 @@ package com.liferay.training.student.web.portlet;
 
 import com.liferay.training.student.web.constants.StudentPortletKeys;
 
+import com.liferay.training.students.service.StudentLocalService;
+
+import java.io.IOException;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.ProcessAction;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author carlos.machacon
@@ -27,4 +38,19 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class StudentPortlet extends MVCPortlet {
+	@Reference
+	StudentLocalService studentlocalservice;
+	
+	
+	
+	
+  @ProcessAction(name="createStudent")
+  public void form(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
+	 
+	  
+	  
+  }  
+	
+	
+	
 }
