@@ -124,6 +124,200 @@ public class StudentUtil {
 	}
 
 	/**
+	 * Returns all the students where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @return the matching students
+	 */
+	public static List<Student> findByFindStudentBynumberType(
+		String documentNumber, String typeDocument) {
+
+		return getPersistence().findByFindStudentBynumberType(
+			documentNumber, typeDocument);
+	}
+
+	/**
+	 * Returns a range of all the students where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>StudentModelImpl</code>.
+	 * </p>
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param start the lower bound of the range of students
+	 * @param end the upper bound of the range of students (not inclusive)
+	 * @return the range of matching students
+	 */
+	public static List<Student> findByFindStudentBynumberType(
+		String documentNumber, String typeDocument, int start, int end) {
+
+		return getPersistence().findByFindStudentBynumberType(
+			documentNumber, typeDocument, start, end);
+	}
+
+	/**
+	 * Returns an ordered range of all the students where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>StudentModelImpl</code>.
+	 * </p>
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param start the lower bound of the range of students
+	 * @param end the upper bound of the range of students (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching students
+	 */
+	public static List<Student> findByFindStudentBynumberType(
+		String documentNumber, String typeDocument, int start, int end,
+		OrderByComparator<Student> orderByComparator) {
+
+		return getPersistence().findByFindStudentBynumberType(
+			documentNumber, typeDocument, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the students where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>StudentModelImpl</code>.
+	 * </p>
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param start the lower bound of the range of students
+	 * @param end the upper bound of the range of students (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching students
+	 */
+	public static List<Student> findByFindStudentBynumberType(
+		String documentNumber, String typeDocument, int start, int end,
+		OrderByComparator<Student> orderByComparator, boolean useFinderCache) {
+
+		return getPersistence().findByFindStudentBynumberType(
+			documentNumber, typeDocument, start, end, orderByComparator,
+			useFinderCache);
+	}
+
+	/**
+	 * Returns the first student in the ordered set where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching student
+	 * @throws NoSuchStudentException if a matching student could not be found
+	 */
+	public static Student findByFindStudentBynumberType_First(
+			String documentNumber, String typeDocument,
+			OrderByComparator<Student> orderByComparator)
+		throws com.liferay.training.students.exception.NoSuchStudentException {
+
+		return getPersistence().findByFindStudentBynumberType_First(
+			documentNumber, typeDocument, orderByComparator);
+	}
+
+	/**
+	 * Returns the first student in the ordered set where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching student, or <code>null</code> if a matching student could not be found
+	 */
+	public static Student fetchByFindStudentBynumberType_First(
+		String documentNumber, String typeDocument,
+		OrderByComparator<Student> orderByComparator) {
+
+		return getPersistence().fetchByFindStudentBynumberType_First(
+			documentNumber, typeDocument, orderByComparator);
+	}
+
+	/**
+	 * Returns the last student in the ordered set where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching student
+	 * @throws NoSuchStudentException if a matching student could not be found
+	 */
+	public static Student findByFindStudentBynumberType_Last(
+			String documentNumber, String typeDocument,
+			OrderByComparator<Student> orderByComparator)
+		throws com.liferay.training.students.exception.NoSuchStudentException {
+
+		return getPersistence().findByFindStudentBynumberType_Last(
+			documentNumber, typeDocument, orderByComparator);
+	}
+
+	/**
+	 * Returns the last student in the ordered set where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching student, or <code>null</code> if a matching student could not be found
+	 */
+	public static Student fetchByFindStudentBynumberType_Last(
+		String documentNumber, String typeDocument,
+		OrderByComparator<Student> orderByComparator) {
+
+		return getPersistence().fetchByFindStudentBynumberType_Last(
+			documentNumber, typeDocument, orderByComparator);
+	}
+
+	/**
+	 * Returns the students before and after the current student in the ordered set where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param idStudent the primary key of the current student
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next student
+	 * @throws NoSuchStudentException if a student with the primary key could not be found
+	 */
+	public static Student[] findByFindStudentBynumberType_PrevAndNext(
+			long idStudent, String documentNumber, String typeDocument,
+			OrderByComparator<Student> orderByComparator)
+		throws com.liferay.training.students.exception.NoSuchStudentException {
+
+		return getPersistence().findByFindStudentBynumberType_PrevAndNext(
+			idStudent, documentNumber, typeDocument, orderByComparator);
+	}
+
+	/**
+	 * Removes all the students where documentNumber = &#63; and typeDocument = &#63; from the database.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 */
+	public static void removeByFindStudentBynumberType(
+		String documentNumber, String typeDocument) {
+
+		getPersistence().removeByFindStudentBynumberType(
+			documentNumber, typeDocument);
+	}
+
+	/**
+	 * Returns the number of students where documentNumber = &#63; and typeDocument = &#63;.
+	 *
+	 * @param documentNumber the document number
+	 * @param typeDocument the type document
+	 * @return the number of matching students
+	 */
+	public static int countByFindStudentBynumberType(
+		String documentNumber, String typeDocument) {
+
+		return getPersistence().countByFindStudentBynumberType(
+			documentNumber, typeDocument);
+	}
+
+	/**
 	 * Caches the student in the entity cache if it is enabled.
 	 *
 	 * @param student the student

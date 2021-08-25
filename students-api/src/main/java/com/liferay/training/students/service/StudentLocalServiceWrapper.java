@@ -30,6 +30,15 @@ public class StudentLocalServiceWrapper
 		_studentLocalService = studentLocalService;
 	}
 
+	@Override
+	public com.liferay.training.students.model.Student addStudent(
+		String documentNumber, String typeDocument, String name,
+		String lastName, String university) {
+
+		return _studentLocalService.addStudent(
+			documentNumber, typeDocument, name, lastName, university);
+	}
+
 	/**
 	 * Adds the student to the database. Also notifies the appropriate model listeners.
 	 *

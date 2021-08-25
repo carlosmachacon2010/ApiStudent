@@ -3,7 +3,7 @@
 
 <hibernate-mapping auto-import="false" default-lazy="false">
 	<import class="com.liferay.training.students.model.Student" />
-	<class name="com.liferay.training.students.model.impl.StudentImpl" table="students_Student">
+	<class name="com.liferay.training.students.model.impl.StudentImpl" table="Training_Student">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="idStudent" type="long">
 			<generator class="assigned" />
 		</id>

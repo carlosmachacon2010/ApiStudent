@@ -60,6 +60,9 @@ public interface StudentLocalService
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.liferay.training.students.service.impl.StudentLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the student local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link StudentLocalServiceUtil} if injection and service tracking are not available.
 	 */
+	public Student addStudent(
+		String documentNumber, String typeDocument, String name,
+		String lastName, String university);
 
 	/**
 	 * Adds the student to the database. Also notifies the appropriate model listeners.

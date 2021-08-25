@@ -3,7 +3,7 @@
 
 <service-builder dependency-injector="ds" package-path="com.liferay.training.students">
 	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
-    <namespace>students</namespace>
+    <namespace>Training</namespace>
     <entity name="Student" local-service="true">
         <column name="idStudent" type="long" primary="true"></column>
         <column name="documentNumber" type="String"></column>
@@ -15,6 +15,11 @@
        <order>
          <order-column name="lastName" order-by="asc" />
        </order>
+       
+       <finder name="FindStudentBynumberType" return-type="Collection">
+			<finder-column name="documentNumber" />
+			<finder-column name="typeDocument" />
+        </finder>
         
     </entity>
 </service-builder>

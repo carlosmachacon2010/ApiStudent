@@ -21,7 +21,7 @@ import com.liferay.portal.kernel.util.Accessor;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * The extended model interface for the Student service. Represents a row in the &quot;students_Student&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the Student service. Represents a row in the &quot;Training_Student&quot; database table, with each column mapped to a property of this class.
  *
  * @author Brian Wing Shun Chan
  * @see StudentModel

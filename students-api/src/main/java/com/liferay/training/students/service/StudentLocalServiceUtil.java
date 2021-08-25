@@ -37,6 +37,13 @@ public class StudentLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.liferay.training.students.service.impl.StudentLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static com.liferay.training.students.model.Student addStudent(
+		String documentNumber, String typeDocument, String name,
+		String lastName, String university) {
+
+		return getService().addStudent(
+			documentNumber, typeDocument, name, lastName, university);
+	}
 
 	/**
 	 * Adds the student to the database. Also notifies the appropriate model listeners.

@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +16,12 @@
 package com.liferay.training.students.service.impl;
 
 import com.liferay.portal.aop.AopService;
+
+import com.liferay.training.students.model.Student;
 import com.liferay.training.students.service.base.StudentLocalServiceBaseImpl;
+import com.liferay.training.students.service.persistence.StudentPersistence;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -43,4 +49,37 @@ public class StudentLocalServiceImpl extends StudentLocalServiceBaseImpl {
 	 *
 	 * Never reference this class directly. Use <code>com.liferay.training.students.service.StudentLocalService</code> via injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use <code>com.liferay.training.students.service.StudentLocalServiceUtil</code>.
 	 */
+	
+	public Student addStudent(String documentNumber,String typeDocument,String name,String lastName,String university){
+		
+		if(studentPersistence.findByFindStudentBynumberType(documentNumber, typeDocument).isEmpty()){
+			Student newStudent=createStudent(counterLocalService.increment());
+			newStudent.setDocumentNumber(documentNumber);
+			newStudent.setTypeDocument(typeDocument);
+			newStudent.setName(name);
+			newStudent.setLastName(lastName);
+			newStudent.setUniversity(university);
+			return super.addStudent(newStudent);
+			
+			
+			
+			
+		}else {
+			return null;
+		}
+		
+		
+	}
+	public List<Student> findByStudentnumberTypeDocument(String documentNumber,String typeDocument){
+		
+		return studentPersistence.findByFindStudentBynumberType(documentNumber, typeDocument);
+		
+		
+	}
+	
+	/*public List<Student> findAllStudents(){
+		
+		return studentPersistence.;
+	}*/
+	
 }
