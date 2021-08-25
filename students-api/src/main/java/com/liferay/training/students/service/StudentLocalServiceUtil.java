@@ -215,6 +215,14 @@ public class StudentLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static java.util.List<com.liferay.training.students.model.Student>
+		getfindByStudentnumberTypeDocument(
+			String documentNumber, String typeDocument) {
+
+		return getService().getfindByStudentnumberTypeDocument(
+			documentNumber, typeDocument);
+	}
+
 	public static
 		com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery
 			getIndexableActionableDynamicQuery() {
@@ -253,6 +261,16 @@ public class StudentLocalServiceUtil {
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getStudent(idStudent);
+	}
+
+	public static java.util.List<com.liferay.training.students.model.Student>
+		getStudentByLastName(
+			int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.students.model.Student>
+					orderByComparator) {
+
+		return getService().getStudentByLastName(start, end, orderByComparator);
 	}
 
 	/**

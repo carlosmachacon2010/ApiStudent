@@ -193,6 +193,10 @@ public interface StudentLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Student> getfindByStudentnumberTypeDocument(
+		String documentNumber, String typeDocument);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
 
 	/**
@@ -219,6 +223,10 @@ public interface StudentLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Student getStudent(long idStudent) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Student> getStudentByLastName(
+		int start, int end, OrderByComparator<Student> orderByComparator);
 
 	/**
 	 * Returns a range of all the students.
