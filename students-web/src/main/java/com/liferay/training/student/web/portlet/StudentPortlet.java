@@ -9,6 +9,8 @@ import java.io.IOException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.servlet.SessionErrors;
+import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 
 import javax.portlet.ActionRequest;
@@ -47,11 +49,22 @@ public class StudentPortlet extends MVCPortlet {
 	
   @ProcessAction(name="createStudent")
   public void createStudent(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
-	  ParamUtil.getString(request,StudentPortletKeys.NAME);
-	  ParamUtil.getString(request,StudentPortletKeys.lASTNAME);
-	  ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
-	  ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
-	  ParamUtil.getString(request,StudentPortletKeys.UNIVERSITY);
+	  String name=ParamUtil.getString(request,StudentPortletKeys.NAME);
+	  String lastName=ParamUtil.getString(request,StudentPortletKeys.lASTNAME);
+	  String documentNumber=ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
+	  String typeDocument=ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
+	  String university=ParamUtil.getString(request,StudentPortletKeys.UNIVERSITY);
+	  
+	  if(studentlocalservice.addStudent(documentNumber, typeDocument, name, lastName, university)!=null) {
+		  SessionMessages.add(request, "entryAdded");  
+		  
+	  }else {
+		  SessionErrors.add(request,"error"); 
+		  
+	     } 
+	  
+	    request.setAttribute("Messages","algo");
+	  
 	  
 	  
   }  

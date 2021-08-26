@@ -12,5 +12,5 @@ public class StudentPortletKeys {
 	public static final String DOCUMENTNUMBER="documentNumber";
 	public static final String TYPEDOCUMENT="typeDocument";
 	public static final String UNIVERSITY="university";
-
+	
 }

@@ -17,6 +17,7 @@
 package com.liferay.training.students.service.impl;
 
 import com.liferay.portal.aop.AopService;
+
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.training.students.model.Student;
 import com.liferay.training.students.service.base.StudentLocalServiceBaseImpl;
@@ -66,11 +67,13 @@ public class StudentLocalServiceImpl extends StudentLocalServiceBaseImpl {
 			newStudent.setName(name);
 			newStudent.setLastName(lastName);
 			newStudent.setUniversity(university);
+			
 			return super.addStudent(newStudent);
-
-		} else {
+		}else {
+			
 			return null;
 		}
+		
 
 	}
 

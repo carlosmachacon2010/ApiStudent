@@ -6,6 +6,10 @@
 
 <%@ include file="/init.jsp"%>
 
+
+
+<liferay-ui:success key="entryAdded" message="Entry added successfully" />
+<liferay-ui:error key="error" message="the document number and type already exists!" ></liferay-ui:error>
 <portlet:defineObjects />
 <portlet:actionURL name="createStudent" var="createStudent"/>
 <form method="post" action="${createStudent}">
