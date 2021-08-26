@@ -9,6 +9,7 @@ import java.io.IOException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.util.ParamUtil;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -45,8 +46,12 @@ public class StudentPortlet extends MVCPortlet {
 	
 	
   @ProcessAction(name="createStudent")
-  public void form(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
-	 
+  public void createStudent(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
+	  ParamUtil.getString(request,StudentPortletKeys.NAME);
+	  ParamUtil.getString(request,StudentPortletKeys.lASTNAME);
+	  ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
+	  ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
+	  ParamUtil.getString(request,StudentPortletKeys.UNIVERSITY);
 	  
 	  
   }  

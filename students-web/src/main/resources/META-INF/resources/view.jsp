@@ -6,38 +6,41 @@
 
 <%@ include file="/init.jsp"%>
 
-<form>
+<portlet:defineObjects />
+<portlet:actionURL name="createStudent" var="createStudent"/>
+<form method="post" action="${createStudent}">
 	<div class="form-row">
 		<div class="form-group col-md-6">
-			<label for="inputEmail4">Name</label> <input type="text"
-				class="form-control">
+			<label for="inputEmail4"><liferay-ui:message key="Name" /></label> <input type="text"
+				class="form-control" name="<portlet:namespace/>name" pattern="[A-Za-z]+" placeholder="please enter text only" required>
 		</div>
 		<div class="form-group col-md-6">
-			<label for="inputEmail4">LastName</label> <input type="text"
-				class="form-control">
+			<label for="inputEmail4"><liferay-ui:message key="Last-Name" /></label> <input type="text"
+				class="form-control" name="<portlet:namespace/>lastName" pattern="[A-Za-z]+" placeholder="please enter text only" required>
 		</div>
 	</div>
 
 	<div class="form-row">
 		<div class="form-group col-md-6">
-			<label for="inputEmail4">Document Number</label> <input type="text"
-				class="form-control">
+			<label for="inputEmail4"><liferay-ui:message key="Document-Number" /></label> <input type="text"
+				class="form-control" name="<portlet:namespace/>documentNumber" pattern="[0-9]+" placeholder="please enter numbers only" required>
 		</div>
 		<div class="form-group col-md-6">
-			<label for="inputPassword4">Type Document</label> <select
-				id="inputState" class="form-control">
-				<option selected>Choose...</option>
-				<option>citizenship card</option>
-				<option>passport</option>
-				<option>Identity Card</option>
-				<option>special permission to stay</option>
+			<label for="inputPassword4"><liferay-ui:message key="Type-Document" /></label> <select
+				 class="form-control" name="<portlet:namespace/>typeDocument" required>
+				<option selected><liferay-ui:message key="Choose" /></option>
+				<option><liferay-ui:message key="citi-card" /></option>
+				<option><liferay-ui:message key="pasp" /></option>
+				<option><liferay-ui:message key="IdeCrd" /></option>
+				<option><liferay-ui:message key="fored" /></option>
+				<option><liferay-ui:message key="special-y" /></option>
 			</select>
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="inputAddress">University</label> <input type="text"
-			class="form-control" id="inputAddress">
+		<label for="inputAddress"><liferay-ui:message key="University" /></label> <input type="text"
+			class="form-control"  name="<portlet:namespace/>university" placeholder="please enter text only" required >
 	</div>
 
-	<button type="submit" class="btn btn-primary">Create Student</button>
+	<button type="submit" class="btn btn-primary"><liferay-ui:message key="Create-Student" /></button>
 </form>
