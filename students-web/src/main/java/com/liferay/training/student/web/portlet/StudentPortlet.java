@@ -55,6 +55,9 @@ public class StudentPortlet extends MVCPortlet {
 	  String typeDocument=ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
 	  String university=ParamUtil.getString(request,StudentPortletKeys.UNIVERSITY);
 	  
+	  
+	  
+	  
 	  if(studentlocalservice.addStudent(documentNumber, typeDocument, name, lastName, university)!=null) {
 		  SessionMessages.add(request, "entryAdded");  
 		  
@@ -69,6 +72,10 @@ public class StudentPortlet extends MVCPortlet {
 	  
   }  
 	
-	
-	
+  @ProcessAction(name="Search")
+  public void Search(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
+	  String documentNumber=ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
+	  String typeDocument=ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
+	  request.setAttribute("student",studentlocalservice.getfindByStudentnumberTypeDocument(documentNumber, typeDocument));
+  }
 }
