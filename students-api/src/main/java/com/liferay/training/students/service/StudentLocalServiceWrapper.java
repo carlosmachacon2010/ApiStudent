@@ -256,6 +256,13 @@ public class StudentLocalServiceWrapper
 		return _studentLocalService.getPersistedModel(primaryKeyObj);
 	}
 
+	@Override
+	public java.util.List<com.liferay.training.students.model.Student>
+		getqueryTypeDocument(String typeDocument) {
+
+		return _studentLocalService.getqueryTypeDocument(typeDocument);
+	}
+
 	/**
 	 * Returns the student with the primary key.
 	 *

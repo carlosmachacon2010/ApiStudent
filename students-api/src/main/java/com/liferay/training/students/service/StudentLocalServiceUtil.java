@@ -249,6 +249,12 @@ public class StudentLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+	public static java.util.List<com.liferay.training.students.model.Student>
+		getqueryTypeDocument(String typeDocument) {
+
+		return getService().getqueryTypeDocument(typeDocument);
+	}
+
 	/**
 	 * Returns the student with the primary key.
 	 *

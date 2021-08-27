@@ -16,6 +16,10 @@
          <order-column name="lastName" order-by="asc" />
        </order>
        
+       <finder name="queryTypeDocument" return-type="Collection">
+			<finder-column name="typeDocument" />
+        </finder>
+       
        <finder name="FindStudentBynumberType" return-type="Collection">
 			<finder-column name="documentNumber" />
 			<finder-column name="typeDocument" />

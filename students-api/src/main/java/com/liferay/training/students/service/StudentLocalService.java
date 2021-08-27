@@ -214,6 +214,9 @@ public interface StudentLocalService
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Student> getqueryTypeDocument(String typeDocument);
+
 	/**
 	 * Returns the student with the primary key.
 	 *
