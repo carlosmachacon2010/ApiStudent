@@ -271,18 +271,6 @@ public class StudentLocalServiceWrapper
 		return _studentLocalService.getStudent(idStudent);
 	}
 
-	@Override
-	public java.util.List<com.liferay.training.students.model.Student>
-		getStudentByLastName(
-			int start, int end,
-			com.liferay.portal.kernel.util.OrderByComparator
-				<com.liferay.training.students.model.Student>
-					orderByComparator) {
-
-		return _studentLocalService.getStudentByLastName(
-			start, end, orderByComparator);
-	}
-
 	/**
 	 * Returns a range of all the students.
 	 *

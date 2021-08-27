@@ -1,10 +1,11 @@
 package com.liferay.training.student.web.portlet;
 
 import com.liferay.training.student.web.constants.StudentPortletKeys;
-
+import com.liferay.training.students.model.Student;
 import com.liferay.training.students.service.StudentLocalService;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -18,7 +19,10 @@ import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.ProcessAction;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 
+import org.omg.CORBA.Request;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -44,9 +48,22 @@ public class StudentPortlet extends MVCPortlet {
 	@Reference
 	StudentLocalService studentlocalservice;
 	
+	@Override
+	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws IOException, PortletException {
+		// TODO Auto-generated method stub
+	 
+	 
+		
+		renderRequest.setAttribute("listaOrdenada",studentlocalservice.getStudents(0,studentlocalservice.getStudentsCount()));
+		super.render(renderRequest,renderResponse);
+	}
+
 	
 	
 	
+	
+   
   @ProcessAction(name="createStudent")
   public void createStudent(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
 	  String name=ParamUtil.getString(request,StudentPortletKeys.NAME);
@@ -58,9 +75,10 @@ public class StudentPortlet extends MVCPortlet {
 	  
 	  
 	  
+	  
 	  if(studentlocalservice.addStudent(documentNumber, typeDocument, name, lastName, university)!=null) {
-		  SessionMessages.add(request, "entryAdded");  
-		  
+		  SessionMessages.add(request, "entryAdded");
+		    
 	  }else {
 		  SessionErrors.add(request,"error"); 
 		  
@@ -71,11 +89,13 @@ public class StudentPortlet extends MVCPortlet {
 	  
 	  
   }  
-	
   @ProcessAction(name="Search")
   public void Search(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
 	  String documentNumber=ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
 	  String typeDocument=ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
 	  request.setAttribute("student",studentlocalservice.getfindByStudentnumberTypeDocument(documentNumber, typeDocument));
+	  
+	  
   }
+  
 }

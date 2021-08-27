@@ -60,72 +60,48 @@
 	</button>
 </form>
 <br />
-<hr size="2px" color="#0B5FFF" /> 
-<h3><liferay-ui:message key="title-search" /></h3>
- 
+<hr size="2px" color="#0B5FFF" />
+<h3>
+	<liferay-ui:message key="title-search" />
+</h3>
+
 <br />
 
 
-<portlet:defineObjects />
-<portlet:actionURL name="Search" var="Search" />
-<form method="post" action="${Search}">
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label for="inputEmail4"><liferay-ui:message
-					key="Document-Number" /></label> <input type="text" class="form-control"
-				name="<portlet:namespace/>documentNumber" pattern="[0-9]+"
-				placeholder="please enter numbers only" required>
-		</div>
-		<div class="form-group col-md-6">
-			<label for="inputPassword4"><liferay-ui:message
-					key="Type-Document" /></label> <select class="form-control"
-				name="<portlet:namespace/>typeDocument" required>
-				<option selected><liferay-ui:message key="Choose" /></option>
-				<option><liferay-ui:message key="citi-card" /></option>
-				<option><liferay-ui:message key="pasp" /></option>
-				<option><liferay-ui:message key="IdeCrd" /></option>
-				<option><liferay-ui:message key="fored" /></option>
-				<option><liferay-ui:message key="special-y" /></option>
-			</select>
-		</div>
-	</div>
-
-	<div class="card text-center" >
-		<button type="submit" class="btn btn-primary">
-			<liferay-ui:message key="find-Student" />
-		</button>
-	</div>
-</form>
-<br />
-<%  List<Student> student=(List<Student>)request.getAttribute("student");
-
- if(student!=null){
+<%
+	List<Student> listaOrdenada = (List<Student>) renderRequest.getAttribute("listaOrdenada");
+  if(listaOrdenada!=null){
 %>
 
 <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"><liferay-ui:message key="Name" /></th>
-      <th scope="col"><liferay-ui:message key="Last-Name" /></th>
-      <th scope="col"><liferay-ui:message key="Document-Number" /></th>
-      <th scope="col"><liferay-ui:message key="Type-Document" /></th>
-      <th scope="col"><liferay-ui:message key="University" /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     <% for(int i=0;i<student.size();i++){ %>
-      <th><%=student.get(i).getName() %></th>
-      <td><%=student.get(i).getLastName() %></td>
-      <td><%=student.get(i).getDocumentNumber() %></td>
-      <td><%=student.get(i).getTypeDocument() %></td>
-      <td><%=student.get(i).getUniversity() %></td>
-      <%}%>
-    </tr>
-  </tbody>
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col"><liferay-ui:message key="id" /></th>
+			<th scope="col"><liferay-ui:message key="Document-Number" /></th>
+			<th scope="col"><liferay-ui:message key="Type-Document" /></th>
+			<th scope="col"><liferay-ui:message key="Name" /></th>
+			<th scope="col"><liferay-ui:message key="Last-Name" /></th>
+			<th scope="col"><liferay-ui:message key="University" /></th>
+		</tr>
+	</thead>
+	<tbody>
+	     <%
+			for (int i = 0; i < listaOrdenada.size(); i++) {
+			%>
+		<tr>
+			
+			<th><%=listaOrdenada.get(i).getIdStudent()%></th>
+			<td><%=listaOrdenada.get(i).getDocumentNumber() %></td>
+			<td><%=listaOrdenada.get(i).getTypeDocument() %></td>
+			<td><%=listaOrdenada.get(i).getName()%></td>
+			<td><%=listaOrdenada.get(i).getLastName() %></td>
+			<td><%=listaOrdenada.get(i).getUniversity() %></td>
+
+			
+		</tr>
+		<%
+		}
+		%>
+	</tbody>
 </table>
-<%}else{ %>
-     <div class="alert alet-danger" role="alert">
-          <liferay-ui:message key="alert-message" />
-     </div>
 <%} %>

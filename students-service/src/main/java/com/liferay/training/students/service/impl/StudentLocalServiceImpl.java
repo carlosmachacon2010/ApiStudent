@@ -83,13 +83,5 @@ public class StudentLocalServiceImpl extends StudentLocalServiceBaseImpl {
 
 	}
 
-	public List<Student> getStudentByLastName(int start, int end, OrderByComparator<Student> orderByComparator) {
-
-		
-		 return studentPersistence.findAll(start, end, orderByComparator);
-		 
-
-		
-	}
 
 }
