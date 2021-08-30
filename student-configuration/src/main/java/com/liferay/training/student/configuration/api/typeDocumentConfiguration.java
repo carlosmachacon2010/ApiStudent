@@ -15,9 +15,9 @@ import aQute.bnd.annotation.metatype.Meta;
 public interface typeDocumentConfiguration {
 	@Meta.AD(
 	        name = "typeDocuments",
-	        optionLabels = {"citizenship card", "passport","Identity Card","foreigner's card","special permission to stay"},
-	        optionValues = {"citizenship card", "passport","Identity Card","foreigner's card","special permission to stay"}, 
+	        
+	        
 	        required = false
 	         )
-		 public String typeDocument();
+		 public String[] typeDocument();
 }

@@ -6,7 +6,10 @@
 
 <%@ include file="/init.jsp"%>
 
+<%   String[] Array=(String[])renderRequest.getAttribute("ArrayString");
+     out.print(Array);
 
+%>
 
 <liferay-ui:success key="entryAdded" message="Entry added successfully" />
 <liferay-ui:error key="error"

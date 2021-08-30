@@ -1,6 +1,7 @@
 package com.liferay.training.student.web.portlet;
 
 import com.liferay.training.student.configuration.api.trainingStudentApi;
+
 import com.liferay.training.student.web.constants.StudentPortletKeys;
 import com.liferay.training.students.model.Student;
 import com.liferay.training.students.service.StudentLocalService;
@@ -58,15 +59,15 @@ public class StudentPortlet extends MVCPortlet {
 			throws IOException, PortletException {
 		// TODO Auto-generated method stub
 	 
-	       List<Student> xxx=conf.getqueryTypeDocument();
-	       System.out.println("Tipos desde portlet" + xxx);
+		
+	       /*System.out.println("Tipos desde portlet" + xxx);
 	       for(int i=0;i<xxx.size();i++) {
 	    	   
 	    	   System.out.println(xxx.get(i));
-	       }
+	       }*/
 	       
 	       
-		
+		//renderRequest.setAttribute("ArrayString",conf.getqueryTypeDocument());
 		renderRequest.setAttribute("listaOrdenada",studentlocalservice.getStudents(0,studentlocalservice.getStudentsCount()));
 		super.render(renderRequest,renderResponse);
 	}
