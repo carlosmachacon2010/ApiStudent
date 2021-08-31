@@ -1,7 +1,8 @@
 package com.liferay.training.student.web.portlet;
 
-import com.liferay.training.student.configuration.api.trainingStudentApi;
 
+
+import com.liferay.training.student.api.api.TrainingStudent;
 import com.liferay.training.student.web.constants.StudentPortletKeys;
 import com.liferay.training.students.model.Student;
 import com.liferay.training.students.service.StudentLocalService;
@@ -51,23 +52,16 @@ public class StudentPortlet extends MVCPortlet {
 	StudentLocalService studentlocalservice;
 	
 	@Reference
-	  trainingStudentApi conf;
+	TrainingStudent conf;
+
 	
 	
 	@Override
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
 		// TODO Auto-generated method stub
-	 
-		
-	       /*System.out.println("Tipos desde portlet" + xxx);
-	       for(int i=0;i<xxx.size();i++) {
-	    	   
-	    	   System.out.println(xxx.get(i));
-	       }*/
-	       
-	       
-		//renderRequest.setAttribute("ArrayString",conf.getqueryTypeDocument());
+	    
+		renderRequest.setAttribute("ArrayString",conf.getqueryTypeDocument());
 		renderRequest.setAttribute("listaOrdenada",studentlocalservice.getStudents(0,studentlocalservice.getStudentsCount()));
 		super.render(renderRequest,renderResponse);
 	}
@@ -84,8 +78,6 @@ public class StudentPortlet extends MVCPortlet {
 	  String documentNumber=ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
 	  String typeDocument=ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
 	  String university=ParamUtil.getString(request,StudentPortletKeys.UNIVERSITY);
-	  
-	  
 	  
 	  
 	  
@@ -106,7 +98,14 @@ public class StudentPortlet extends MVCPortlet {
   public void Search(ActionRequest request,ActionResponse response) throws IOException,PortletException,SystemException,PortalException{
 	  String documentNumber=ParamUtil.getString(request,StudentPortletKeys.DOCUMENTNUMBER);
 	  String typeDocument=ParamUtil.getString(request,StudentPortletKeys.TYPEDOCUMENT);
-	  request.setAttribute("student",studentlocalservice.getfindByStudentnumberTypeDocument(documentNumber, typeDocument));
+	  
+
+		  
+		  request.setAttribute("search",studentlocalservice.getfindByStudentnumberTypeDocument(documentNumber, typeDocument));
+		  
+
+	  
+	 
 	  
 	  
   }

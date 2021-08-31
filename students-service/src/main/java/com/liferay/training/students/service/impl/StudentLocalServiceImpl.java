@@ -79,14 +79,11 @@ public class StudentLocalServiceImpl extends StudentLocalServiceBaseImpl {
 
 	public List<Student> getfindByStudentnumberTypeDocument(String documentNumber, String typeDocument) {
 
-		return studentPersistence.findByFindStudentBynumberType(documentNumber, typeDocument);
+        	return studentPersistence.findByFindStudentBynumberType(documentNumber, typeDocument);
+        	
+       
+		
 
 	}
-    public List<Student> getqueryTypeDocument(String typeDocument){
-    	
-    	return studentPersistence.findByqueryTypeDocument(typeDocument);
-    	
-    	
-    }
-
+   
 }

@@ -20,5 +20,6 @@ dependencies {
 	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.0.2"
 	
 	compile project(":modules:students:students-api")
-	compile project(":modules:students:student-configuration")
+	compile project(":modules:students:students-configuration")
+	
 }
